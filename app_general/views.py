@@ -1,6 +1,8 @@
-from django.http.response import HttpResponse
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
-from app_rooms.models import Room
+from django.urls import reverse
+from app_general.forms import SubscriptionModelForm
+from .models import Subscription
 
 # Create your views here.
 
@@ -11,8 +13,14 @@ def about(request):
     return render(request, 'app_general/about.html')
 
 def subscription(request):
-    all_rooms = Room.objects.all()
-    context = {'rooms': all_rooms}
+    if request.method == 'POST':
+        form = SubscriptionModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('subscription_thankyou'))
+    else:
+        form = SubscriptionModelForm()
+    context = {'form': form}
     return render(request, 'app_general/subscription_form.html', context)
 
 def subscription_thankyou(request):

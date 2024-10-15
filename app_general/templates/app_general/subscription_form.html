@@ -3,21 +3,30 @@
 {% block site_title %}ลงทะเบียนเข้าใช้งาน | เกสต์เฮาส์บุปผาธารา{% endblock %}
 
 {% block content %}
-<form>
-    <h2>ลงทะเบียนเข้าใช้งาน</h2>
-    <p>กรุณาใส่ข้อมูล</p>
-    <div>
-        <label>ชื่อ-นามสกุล</label>
-        <input type="text">
+<h2>ลงทะเบียนเข้าใช้งาน</h2>
+<p>กรุณาใส่ข้อมูล</p>
+<form action="{% url 'subscription' %}" method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div style="margin-bottom: 16px;">
+        {{ form.name.label_tag }}
+        {{ form.name }}
+        {{ form.name.errors }}
     </div>
-    <div>
-        <label>อีเมล</label>
-        <input type="email">
+    <div style="margin-bottom: 16px;">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {{ form.email.errors }}
     </div>
-    <div>
+    <div style="margin-bottom: 16px;">
         <label>อ่านข้อตกลงและเงื่อนไข</label>
-        <input type="checkbox"><label>กรุณากดยอมรับ</label>
+        <label>
+            {{ form.accepted }} {{ form.accepted.label }}
+        </label>
+        {{ form.accepted.errors }}
     </div>
-    <a href="{% url 'subscription_thankyou' %}">ลงทะเบียนเข้าใช้งาน</a>
+    <div style="margin-bottom: 16px;">
+        <button type="submit">ลงทะเบียนเข้าใช้งาน</button>
+    </div>
 </form>
 {% endblock %}
