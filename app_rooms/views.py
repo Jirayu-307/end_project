@@ -4,20 +4,20 @@ from django.shortcuts import render
 
 all_rooms = [
     {
-        'id': 1, 'title': 'ห้องพักหมายเลข 1', 'price': 699, 'is_multiple_bed': True,
-        'datetest': datetime(2024, 1, 1)
+        'id': 1, 'title': 'ห้องพักหมายเลข 1', 'price': 1699, 'is_multiple_bed': True,
+        'check_in_date': datetime(2024, 1, 1), 'check_out_date': datetime(2024, 1, 10)
     },
     {
-        'id': 2, 'title': 'ห้องพักหมายเลข 2', 'price': 499, 'is_multiple_bed': False,
-        'datetest': datetime(2024, 1, 2)
+        'id': 2, 'title': 'ห้องพักหมายเลข 2', 'price': 1499, 'is_multiple_bed': False,
+        'check_in_date': datetime(2024, 2, 10), 'check_out_date': datetime(2024, 2, 28)
     },
     {
-        'id': 3, 'title': 'ห้องพักหมายเลข 3', 'price': 699, 'is_multiple_bed': True,
-        'datetest': datetime(2024, 1, 3)
+        'id': 3, 'title': 'ห้องพักหมายเลข 3', 'price': 1699, 'is_multiple_bed': True,
+        'check_in_date': datetime(2024, 1, 1), 'check_out_date': datetime(2024, 2, 1)
     },
     {
-        'id': 4, 'title': 'ห้องพักหมายเลข 4', 'price': 499, 'is_multiple_bed': False,
-        'datetest': datetime(2024, 1, 4)
+        'id': 4, 'title': 'ห้องพักหมายเลข 4', 'price': 1499, 'is_multiple_bed': False,
+        'check_in_date': datetime(2024, 4, 13), 'check_out_date': datetime(2024, 4, 15)
     },
 ]
 
