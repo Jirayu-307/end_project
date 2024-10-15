@@ -1,0 +1,23 @@
+{% extends 'app_general/components/base.html' %}
+
+{% block site_title %}ลงทะเบียนเข้าใช้งาน | เกสต์เฮาส์บุปผาธารา{% endblock %}
+
+{% block content %}
+<form>
+    <h2>ลงทะเบียนเข้าใช้งาน</h2>
+    <p>กรุณาใส่ข้อมูล</p>
+    <div>
+        <label>ชื่อ-นามสกุล</label>
+        <input type="text">
+    </div>
+    <div>
+        <label>อีเมล</label>
+        <input type="email">
+    </div>
+    <div>
+        <label>อ่านข้อตกลงและเงื่อนไข</label>
+        <input type="checkbox"><label>กรุณากดยอมรับ</label>
+    </div>
+    <a href="{% url 'subscription_thankyou' %}">ลงทะเบียนเข้าใช้งาน</a>
+</form>
+{% endblock %}
