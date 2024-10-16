@@ -8,6 +8,9 @@
     <a class="site-header-item" href="{% url 'about' %}">เกี่ยวกับ</a>
     {% if user.is_authenticated %}
         <a class="site-header-item" href="#">{{ user.username }}</a>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">ออกจากระบบ</button>
     {% else %}
         <a class="site-header-item" href="{% url 'login' %}">เข้าสู่ระบบ</a>
         <a class="site-header-item" href="#">สมัครสมาชิก</a>
