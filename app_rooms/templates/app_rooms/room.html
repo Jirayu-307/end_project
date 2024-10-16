@@ -1,10 +1,14 @@
 {% extends 'app_general/components/base.html' %}
+{% load static %}
 
 {% block site_title %}{{ room.title }}| เกสต์เฮาส์บุปผาธารา{% endblock %}
 
 {% block content %}
 {% if room is not None %}
 <div>
+    <div>
+        <img src="{% static room.image_relative_url %}">
+    </div>
     <h3>{{ room.title }}</h3>
     <p>{{ room.price|floatformat:'g' }} บาท</p>
     {% if room.is_multiple_bed %}
