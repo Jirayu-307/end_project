@@ -7,7 +7,7 @@
     <a class="site-header-item" href="{% url 'rooms' %}">ห้องพักทั้งหมด</a>
     <a class="site-header-item" href="{% url 'about' %}">เกี่ยวกับ</a>
     {% if user.is_authenticated %}
-        <a class="site-header-item" href="#">{{ user.username }}</a>
+        <a class="site-header-item" href="{% url 'dashboard' %}">{{ user.username }}</a>
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
             <button type="submit">ออกจากระบบ</button>
